@@ -1,38 +1,15 @@
 import React from 'react';
-import Layout from './components/Layout';
 import {
     HashRouter as Router,
-  Route,
-  Switch,
-  Redirect
+    Route,
+    Switch,
+    Redirect
 } from 'react-router-dom'
+import Money from 'views/Money';
+import NoMatch from 'views/NoMatch';
+import Statistics from 'views/Statistics';
+import Tags from 'views/Tags';
 
-
-
-const Money = () => (
-  <Layout>
-      <h2>记账页面</h2>
-    </Layout>
-)
-
-const Statistics = () => (
-  <Layout>
-    <h2>统计页面</h2>
-  </Layout>
-)
-
-
-const Tags = () => (
-  <Layout>
-    <h2>标签页面</h2>
-  </Layout>
-)
-
-const NoMatch = ()=>(
-  <div>
-    <h2>页面不存在，请检查地址</h2>
-  </div>
-)
 const App = () => (
   <Router>
       <Switch>
