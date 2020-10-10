@@ -1,6 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
-import Nav from './components/Nav';
+import Layout from './components/Layout';
 import {
     HashRouter as Router,
   Route,
@@ -8,35 +7,25 @@ import {
   Redirect
 } from 'react-router-dom'
 
-const Wrapper = styled.div`
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-`
 
-
-const Main = styled.div`
-flex-grow: 1;
-over-flow: auto;
-`
 
 const Money = () => (
-  <div>
-    <h2>记账页面</h2>
-  </div>
+  <Layout>
+      <h2>记账页面</h2>
+    </Layout>
 )
 
 const Statistics = () => (
-  <div>
+  <Layout>
     <h2>统计页面</h2>
-  </div>
+  </Layout>
 )
 
 
 const Tags = () => (
-  <div>
+  <Layout>
     <h2>标签页面</h2>
-  </div>
+  </Layout>
 )
 
 const NoMatch = ()=>(
@@ -46,8 +35,6 @@ const NoMatch = ()=>(
 )
 const App = () => (
   <Router>
-    <Wrapper>
-      <Main>
       <Switch>
         <Route path="/tags">
           <Tags/>
@@ -63,9 +50,6 @@ const App = () => (
           <NoMatch/>
         </Route>
       </Switch>
-      </Main>
-      <Nav/>
-    </Wrapper>
   </Router>
 )
 export default App;
