@@ -9,9 +9,13 @@ import Money from 'views/Money';
 import NoMatch from 'views/NoMatch';
 import Statistics from 'views/Statistics';
 import Tags from 'views/Tags';
-
+import styled from 'styled-components';
+const AppWrapper = styled.div`
+  color:#333;
+`
 const App = () => (
-  <Router>
+<AppWrapper>
+<Router>
       <Switch>
         <Route path="/tags">
           <Tags/>
@@ -28,5 +32,6 @@ const App = () => (
         </Route>
       </Switch>
   </Router>
+  </AppWrapper>
 )
 export default App;
