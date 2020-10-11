@@ -54,21 +54,10 @@ const CategorySection = styled.section`
             padding: 16px 0;
             position: relative;
             &.selected::after{
-                border: 1px solid black;
                 content:'';
-                display: block;
-                height: 30px;
-                color: #333;
-                position: absolute;
-                bottom: 0;
-                width: 100%;
-                left:0;
-            }
-            &.selected::after{
-                content:'';
+                background: #333;
                 display: block;
                 height: 3px;
-                color: #333;
                 position: absolute;
                 bottom: 0;
                 width: 100%;
