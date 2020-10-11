@@ -3,7 +3,12 @@ import Layout from "../components/Layout"
 import styled from 'styled-components';
 const TagsSection = styled.section`
     background: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
     padding: 12px 16px;
+    flex-grow: 1;
     > ol{
         margin: 0 -12px;
     > li{
@@ -96,8 +101,13 @@ const NumberPadSection = styled.section`
     }
 `
 
+const MyLayout = styled(Layout)`
+    display: flex;
+    flex-direction: column;
+`
+
 const Money = () => (
-    <Layout>
+    <MyLayout>
         <TagsSection>
             <ol>
                 <li>衣</li>
@@ -140,7 +150,7 @@ const Money = () => (
                 <button className="dot">.</button>
             </div>
         </NumberPadSection>
-    </Layout>
+    </MyLayout>
 )
 
 export default Money;
