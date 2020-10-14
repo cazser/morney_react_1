@@ -1,62 +1,48 @@
 import React from "react";
 import styled from "styled-components";
+import { useRecordList } from "useRecordList";
 import Layout from "../components/Layout"
 const HeaderWrapper = styled.header`
     text-align: center;
 `//
 
-const TableWrapper = styled.table`
-    border-collapse: collapse;
-    margin: 0 auto;
-    text-align: center;
-    table td, table th
-        {
-            border: 1px solid #cad9ea;
-            color: #666;
-            height: 30px;
+const LiWrapper = styled.ul`
+    >li {
+        display: flex;
+        justify-content: space-between;
+        text-align: center;
+        background: white;
+        border: 1px solid #333333;
+        > span{
+            max-width: 30%;
         }
-        table thead th
-        {
-            background-color: #CCE8EB;
-            width: 100px;
-        }
-        tr{
-            border: 1px solid inherit;
-        }
-        table tr:nth-child(odd)
-        {
-            background: #fff;
-        }
-        table tr:nth-child(even)
-        {
-            background: #F5FAFA;
-        }
-
+    }
 `//
-const Statistics = () => (
+const Statistics = () =>{ 
+    const {getRecordList, setRecordList}= useRecordList();
+    return(
     <Layout>
         <HeaderWrapper>记录</HeaderWrapper>
-        <br/>
-            <TableWrapper>
-            <thead>
-            <tr>
-                <th>
-                    时间
-                </th>
-                <th>
-                    支出/收入
-                </th>
-                <th>
-                    金额（￥）
-                </th>
-                <th>
-                    种类
-                </th>
-            </tr>
-            </thead>
-            </TableWrapper>
+
+        <LiWrapper>
+        {
+        
+        getRecordList().map((record: any)=>
+        {
+        return(
+        <li key={record}>
+            <span>{record.note}</span>
+            <span>{record.amount}</span>
+            <span>{record.tags}</span>
+            <span>{record.category==='-'? '支出' : '收入'}</span>
+            <span>{record.time}</span>
+        </li>
+        );
+        }
+        )}
+        </LiWrapper>    
         
     </Layout>
 )
-
+}
 export default Statistics;

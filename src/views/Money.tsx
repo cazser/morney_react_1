@@ -5,7 +5,7 @@ import { NoteSection } from "./Money/NoteSection";
 import { CategorySection } from "./Money/CategorySection";
 import { NumberPadSection } from "./Money/NumberPadSection";
 import styled from "styled-components";
-import { Z_UNKNOWN } from "zlib";
+import { useRecordList } from "useRecordList";
 
 const MyLayout = styled(Layout)`
     display: flex;
@@ -13,6 +13,7 @@ const MyLayout = styled(Layout)`
 `
 type Category = "-" | "+";
 const Money = () => {
+    const {getRecordList, setRecordList} = useRecordList();
     const [selected, setSelected] = useState({
         tags:[] as string[],
         note:'',
@@ -27,6 +28,10 @@ const Money = () => {
             ...obj
         })
     }
+    const onOK=()=>{
+        selected.time = new Date();
+        setRecordList([...getRecordList(), selected]);
+    }
     return(
     <MyLayout>
         
@@ -38,8 +43,7 @@ const Money = () => {
                             onChange={(category)=>onChange({category})}/>
         <NumberPadSection    value={selected.amount}
                             onChange={(amount)=>onChange({amount})}
-                            onOk={()=>{selected.time = new Date();console.log(selected);
-                            }}
+                            onOk={()=>{onOK()}}
                             />
     </MyLayout>
 )

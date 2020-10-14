@@ -3,8 +3,6 @@ import { useTags } from "useTags";
 import Layout from "../components/Layout"
 import styled from 'styled-components';
 import Icon from "components/Icon";
-import { Link } from "react-router-dom";
-
 
 const TagList = styled.ol`
   font-size: 16px;
