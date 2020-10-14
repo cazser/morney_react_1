@@ -35,14 +35,20 @@ const Space = styled.div`
 height: 16px;
 `//
 const Tags = () => {
-  const {tags, setTags} = useTags();
+  const {getTags, setTags} = useTags();
   const deleteTag = (tag: string)=>{
-    setTags(tags.filter(t => t!==tag))
+    setTags(getTags().filter((t: string) => t!==tag))
+  }
+  const onAddTag=()=>{
+    const tagName = window.prompt('新标签的名称为');
+    if(tagName!==null){
+        setTags([...getTags(), tagName])
+    }
   }
   return(
     <Layout>
       <TagList>
-        {tags.map(tag=>
+        {getTags().map((tag: string)=>
           {
           return(
           <li key={tag}>
@@ -57,7 +63,7 @@ const Tags = () => {
       </TagList>
       <Center>
         <Space/>
-        <Button>新增标签</Button>
+        <Button onClick={()=>onAddTag()}>新增标签</Button>
         <Space/>
       </Center>
     </Layout>

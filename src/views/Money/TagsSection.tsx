@@ -37,12 +37,12 @@ type Props ={
     value: string[];
     onChange:(selected: string[])=>void}
 const TagsSection: React.FC<Props>=(props)=>{
-    const {tags, setTags} = useTags();
+    const {getTags, setTags} = useTags();
     const selectedTags = props.value;
     const onAddTag=()=>{
         const tagName = window.prompt('新标签的名称为');
         if(tagName!==null){
-            setTags([...tags, tagName])
+            setTags([...getTags(), tagName])
         }
     }
     const onToggleTag =(tag: string)=>{
@@ -58,8 +58,8 @@ const TagsSection: React.FC<Props>=(props)=>{
     return(
         <Wrapper>
             <ol>
-                {
-                    tags.map(tag=>
+                {   
+                    getTags().map((tag: string)=>
                     <li key={tag}
                         onClick={
                             ()=>{onToggleTag(tag)}
