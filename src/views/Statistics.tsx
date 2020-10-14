@@ -18,13 +18,26 @@ const LiWrapper = styled.ul`
         }
     }
 `//
+
+const Wrapper = styled.ul`
+    display: flex;
+    background: white;
+    justify-content: space-between;
+`//
 const Statistics = () =>{ 
     const {getRecordList, setRecordList}= useRecordList();
     return(
     <Layout>
         <HeaderWrapper>记录</HeaderWrapper>
-
+        <Wrapper>
+            <li>备注</li>
+            <li>金额</li>
+            <li>种类</li>
+            <li>支出/收入</li>
+            <li>日期</li>
+        </Wrapper>
         <LiWrapper>
+            
         {
         
         getRecordList().map((record: any)=>
