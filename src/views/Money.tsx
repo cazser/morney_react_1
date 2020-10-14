@@ -5,6 +5,7 @@ import { NoteSection } from "./Money/NoteSection";
 import { CategorySection } from "./Money/CategorySection";
 import { NumberPadSection } from "./Money/NumberPadSection";
 import styled from "styled-components";
+import { Z_UNKNOWN } from "zlib";
 
 const MyLayout = styled(Layout)`
     display: flex;
@@ -16,7 +17,8 @@ const Money = () => {
         tags:[] as string[],
         note:'',
         category: '-' as Category,
-        amount: 0
+        amount: 0,
+        time:  new Date()
     });
     type Selected = typeof selected;
     const onChange = (obj : Partial<Selected>)=>{
@@ -36,7 +38,8 @@ const Money = () => {
                             onChange={(category)=>onChange({category})}/>
         <NumberPadSection    value={selected.amount}
                             onChange={(amount)=>onChange({amount})}
-                            onOk={()=>{}}
+                            onOk={()=>{selected.time = new Date();console.log(selected);
+                            }}
                             />
     </MyLayout>
 )

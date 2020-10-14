@@ -35,6 +35,12 @@ const Center=styled.div`
 const Space = styled.div`
 height: 16px;
 `//
+
+const IconWrapper = styled.div`
+  .icon{
+    fill: red;
+  }
+`//
 const Tags = () => {
   const {getTags, setTags} = useTags();
   const deleteTag = (tag: string)=>{
@@ -54,9 +60,9 @@ const Tags = () => {
           return(
           <li key={tag}>
             <span>{tag}</span>
-          <div onClick={()=>deleteTag(tag)}>
+          <IconWrapper onClick={()=>deleteTag(tag)}>
           <Icon name="delete"/>
-          </div>
+          </IconWrapper>
           </li>
           );
         }
