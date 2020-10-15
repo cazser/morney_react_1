@@ -4,6 +4,6 @@ export type Record={
         note:string | null,
         category: string,
         amount: number,
-        time:  Date
+        time:  string
 }
 ;

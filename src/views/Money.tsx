@@ -19,7 +19,7 @@ const Money = () => {
         note:'',
         category: '-' as Category,
         amount: 0,
-        time:  new Date()
+        time:  ''
     });
     type Selected = typeof selected;
     const onChange = (obj : Partial<Selected>)=>{
@@ -29,7 +29,7 @@ const Money = () => {
         })
     }
     const onOK=()=>{
-        selected.time = new Date();
+        selected.time = new Date().toLocaleDateString();
         setRecordList([...getRecordList(), selected]);
     }
     return(

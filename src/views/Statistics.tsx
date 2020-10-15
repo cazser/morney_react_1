@@ -49,7 +49,7 @@ const Statistics = () =>{
             <span>{record.amount}</span>
             <span>{record.tags}</span>
             <span>{record.category==='-'? '支出' : '收入'}</span>
-            <span>{}</span>
+            <span>{record.time}</span>
         </li>
         );
         }
