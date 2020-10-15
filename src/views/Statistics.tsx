@@ -14,7 +14,7 @@ const LiWrapper = styled.ul`
         background: white;
         border: 1px solid #333333;
         > span{
-            max-width: 30%;
+            max-width: 20%;
         }
     }
 `//
