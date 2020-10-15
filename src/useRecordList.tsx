@@ -1,12 +1,5 @@
 import { useState } from "react"
-type Record={
-    tags:string[],
-        note:string | null,
-        category: string,
-        amount: number,
-        time:  Date
-}
-
+import { Record } from "d";
 const useRecordList = ()=>{
     let localData = JSON.parse(localStorage.getItem("recordList") as string);
     const [recordList, _setRecordList] = useState(localData as Record[]) ;

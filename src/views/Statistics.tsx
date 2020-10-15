@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { useRecordList } from "useRecordList";
 import Layout from "../components/Layout"
+import { Record } from "d";
 const HeaderWrapper = styled.header`
     text-align: center;
 `//
@@ -40,15 +41,15 @@ const Statistics = () =>{
             
         {
         
-        getRecordList().map((record: any)=>
+        getRecordList().map((record: Record)=>
         {
         return(
-        <li key={record}>
+        <li key={record.note}>
             <span>{record.note}</span>
             <span>{record.amount}</span>
             <span>{record.tags}</span>
             <span>{record.category==='-'? '支出' : '收入'}</span>
-            <span>{record.time}</span>
+            <span>{}</span>
         </li>
         );
         }
